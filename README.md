@@ -2,7 +2,7 @@
 
 A modern, minimalist portfolio website built with plain HTML, CSS, and JavaScript. Features a black, white, and grayscale color palette with elegant animations and smooth scrolling.
 
-## 🚀 Features
+## Features
 
 - **Hero Section**: Professional introduction with call-to-action buttons
 - **About Me**: Biography, skills with animated progress bars, and experience timeline
@@ -13,7 +13,7 @@ A modern, minimalist portfolio website built with plain HTML, CSS, and JavaScrip
 - **Fully Responsive**: Mobile-first design with breakpoints at 480px, 768px, and 968px
 - **Accessible**: Semantic HTML, ARIA labels, keyboard navigation, and reduced motion support
 
-## 🎨 Design Features
+## Design Features
 
 - Black, white, and grayscale color palette
 - Modern minimalist design with strong typography (Inter font)
@@ -23,7 +23,7 @@ A modern, minimalist portfolio website built with plain HTML, CSS, and JavaScrip
 - Subtle hover effects on cards, buttons, and links
 - Professional appearance throughout
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio-website/
@@ -35,7 +35,7 @@ portfolio-website/
 └── README.md           # Project documentation
 ```
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**: Semantic markup with proper accessibility attributes
 - **CSS3**: Modern CSS with custom properties, Grid, Flexbox, and animations
@@ -49,7 +49,7 @@ portfolio-website/
 - **Mobile**: Below 768px
 - **Small Mobile**: Below 480px
 
-## ⚡ Performance
+## Performance
 
 - Zero dependencies - lightweight and fast
 - Optimized scroll events with debouncing
@@ -57,7 +57,7 @@ portfolio-website/
 - Passive event listeners for better performance
 - Minimal DOM manipulation
 
-## ♿ Accessibility
+## Accessibility
 
 - Semantic HTML5 elements
 - ARIA labels for interactive elements
@@ -67,13 +67,13 @@ portfolio-website/
 - Proper heading hierarchy
 - Alt text for images (when added)
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone or download the project
 2. Open `index.html` in any modern web browser
 3. No build process or dependencies required!
 
-## ✏️ Customization Guide
+## Customization Guide
 
 ### Personal Information
 
@@ -98,21 +98,21 @@ Replace SVG placeholders with actual images:
 - About section profile photo
 - Project screenshots
 
-## 📝 Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
 
-## 📄 License
+## License
 
 Free to use for personal and commercial projects.
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to fork this project and customize it for your needs. If you find any bugs or have suggestions for improvements, please open an issue.
 
 ---
 
-**Built with ❤️ using vanilla HTML, CSS, and JavaScript**
+**Built with using vanilla HTML, CSS, and JavaScript**

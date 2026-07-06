@@ -86,10 +86,27 @@ function initSmoothScrolling() {
 function initBackToTop() {
     const navbar = document.getElementById('navbar');
     const backToTop = document.getElementById('backToTop');
+    const scrollProgress = document.getElementById('scrollProgress');
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
+        
+        // Calculate scroll percentage
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = (currentScroll / scrollHeight) * 100;
+
+        // Update scroll progress indicator
+        if (scrollProgress) {
+            scrollProgress.style.height = scrollPercentage + '%';
+            
+            // Add active class when scrolling
+            if (currentScroll > 50) {
+                scrollProgress.classList.add('active');
+            } else {
+                scrollProgress.classList.remove('active');
+            }
+        }
 
         // Add shadow to navbar on scroll
         if (currentScroll > 50) {
@@ -150,33 +167,36 @@ function initActiveNavLink() {
 }
 
 // ===================================
-// Scroll Animations (Fade In Up)
+// Scroll Animations (Enhanced)
 // ===================================
 
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     };
 
+    let ticking = false;
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-                observer.unobserve(entry.target);
+                // Use requestAnimationFrame for smoother animations
+                requestAnimationFrame(() => {
+                    entry.target.classList.add('visible');
+                });
+            } else {
+                // Remove visible class when scrolling away (re-animates when scrolling back)
+                requestAnimationFrame(() => {
+                    entry.target.classList.remove('visible');
+                });
             }
         });
     }, observerOptions);
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.project-card, .timeline-item, .skill-item, .contact-item, .about-subtitle'
-    );
-
+    // Observe all elements with animate-on-scroll class
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
     animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
 
@@ -185,24 +205,87 @@ function initScrollAnimations() {
     const heroImage = document.querySelector('.hero-image');
     
     if (heroContent) {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(30px)';
+        heroContent.classList.add('animate-on-scroll', 'animate-fade-up');
         setTimeout(() => {
-            heroContent.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
-        }, 200);
+            heroContent.classList.add('visible');
+        }, 100);
     }
 
     if (heroImage) {
-        heroImage.style.opacity = '0';
-        heroImage.style.transform = 'translateY(30px)';
+        heroImage.classList.add('animate-on-scroll', 'animate-fade-up', 'animate-delay-2');
         setTimeout(() => {
-            heroImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroImage.style.opacity = '1';
-            heroImage.style.transform = 'translateY(0)';
-        }, 400);
+            heroImage.classList.add('visible');
+        }, 300);
     }
+
+    // Animate section titles
+    const sectionTitles = document.querySelectorAll('.section-title');
+    sectionTitles.forEach(title => {
+        title.classList.add('animate-on-scroll', 'animate-fade-up');
+        observer.observe(title);
+    });
+
+    // Animate about section elements
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage) {
+        aboutImage.classList.add('animate-on-scroll', 'animate-fade-left');
+        observer.observe(aboutImage);
+    }
+
+    const aboutText = document.querySelector('.about-text');
+    if (aboutText) {
+        aboutText.classList.add('animate-on-scroll', 'animate-fade-right');
+        observer.observe(aboutText);
+    }
+
+    // Animate project cards with stagger
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        card.classList.add('animate-on-scroll', 'animate-fade-up', `animate-delay-${(index % 3) + 1}`);
+        observer.observe(card);
+    });
+
+    // Animate timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        item.classList.add('animate-on-scroll', 'animate-fade-left', `animate-delay-${(index % 3) + 1}`);
+        observer.observe(item);
+    });
+
+    // Animate skill items
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+        item.classList.add('animate-on-scroll', 'animate-fade-up', `animate-delay-${(index % 6) + 1}`);
+        observer.observe(item);
+    });
+
+    // Animate contact items
+    const contactItems = document.querySelectorAll('.contact-item');
+    contactItems.forEach((item, index) => {
+        item.classList.add('animate-on-scroll', 'animate-fade-left', `animate-delay-${index + 1}`);
+        observer.observe(item);
+    });
+
+    // Animate contact form
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.classList.add('animate-on-scroll', 'animate-fade-right');
+        observer.observe(contactForm);
+    }
+
+    // Animate social links
+    const socialLinks = document.querySelectorAll('.social-links');
+    socialLinks.forEach(links => {
+        links.classList.add('animate-on-scroll', 'animate-scale');
+        observer.observe(links);
+    });
+
+    // Animate footer sections
+    const footerSections = document.querySelectorAll('.footer-section');
+    footerSections.forEach((section, index) => {
+        section.classList.add('animate-on-scroll', 'animate-fade-up', `animate-delay-${index + 1}`);
+        observer.observe(section);
+    });
 }
 
 // ===================================
