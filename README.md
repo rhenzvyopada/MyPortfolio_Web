@@ -42,7 +42,7 @@ portfolio-website/
 - **JavaScript (ES6+)**: Vanilla JS for interactivity, no dependencies
 - **Google Fonts**: Inter font family for modern typography
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
 - **Desktop**: 968px and above
 - **Tablet**: 768px to 967px

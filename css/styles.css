@@ -712,6 +712,7 @@ a:hover {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
+    border-radius: 10px;
 }
 
 .social-link {
@@ -723,6 +724,7 @@ a:hover {
     border: 1px solid var(--color-gray-300);
     color: var(--color-gray-700);
     transition: all var(--transition-base);
+    border-radius: 10px;
 }
 
 .social-link:hover {
@@ -730,6 +732,7 @@ a:hover {
     color: var(--color-white);
     border-color: var(--color-black);
     transform: translateY(-3px);
+    border-radius: 10px;
 }
 
 /* Contact Form */
