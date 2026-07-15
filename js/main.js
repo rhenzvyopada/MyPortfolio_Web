@@ -49,7 +49,7 @@ function initNavigation() {
 }
 
 // ===================================
-// Smooth Scrolling for Navigation Links
+// Navigation Link Handling
 // ===================================
 
 function initSmoothScrolling() {
@@ -72,7 +72,7 @@ function initSmoothScrolling() {
 
                 window.scrollTo({
                     top: targetPosition,
-                    behavior: 'smooth'
+                    behavior: 'auto'
                 });
             }
         });
